@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+    <% const a = 'Khoa Pham Mean' %>
+    <% const isAdmin = false %>
+    <% const arrSubjects = ['Node', 'Angular', 'Mongo', 'Express']; %>
     <head>
         <title>Learn EJS</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <h1>Khoa Pham Online 1</h1>
+        <h1><%= a %></h1>
+
+        <% if(isAdmin) { %>
+            <a href="#">Trang quan tri</a>
+        <% } else { %>
+            <a href="#">Quay lai</a>
+        <% } %>
+
+        <% arrSubjects.forEach(subject => { %>
+            <h3><%= subject %></h3>
+        <% }); %>
+
         <script src="reload/reload.js"></script>
     </body>
 </html>
