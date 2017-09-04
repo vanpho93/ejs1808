@@ -2,14 +2,14 @@
 <html lang="en">
     <% const a = 'Khoa Pham Mean' %>
     <% const isAdmin = false %>
-    <% const arrSubjects = ['Node', 'Angular', 'Mongo', 'Express']; %>
+    <% const x = '<h3>AAAA</h3>'; %>
     <head>
         <title>Learn EJS</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <h1><%= username %></h1>
+        <h1><%- x %></h1>
 
         <% if(isAdmin) { %>
             <a href="#">Trang quan tri</a>
@@ -22,8 +22,7 @@
         <% }); %>
 
         <% arrPeo.forEach(person => { %>
-            <h3>Ten: <%= person.name %></h3>
-            <p>Tuoi: <%= person.age %></p>
+            <%- include('./partials/personRow.ejs', { person }) %>
         <% }); %>
 
         <script src="reload/reload.js"></script>

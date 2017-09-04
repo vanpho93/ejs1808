@@ -13,11 +13,15 @@ const arrX = [
     { name: 'Tun', age: 12 },
 ];
 
+const arrSubjects = ['Node', 'Angular', 'Mongo', 'Express'];
+
 app.locals.arrPeo = arrX;
 
 app.get('/', (req, res) => res.render('home'));
 
-app.get('/learn', (req, res) => res.render('learn', { username: 'khoapham' }));
+app.get('/learn', (req, res) => {
+    res.render('learn', { username: 'khoapham', arrSubjects });
+});
 
 reload(app);
 
