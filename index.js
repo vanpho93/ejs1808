@@ -6,22 +6,8 @@ const app = express();
 
 app.set('views', './views');
 app.set('view engine', 'ejs');
-
-const arrX = [
-    { name: 'Ti', age: 10 },
-    { name: 'Teo', age: 11 },
-    { name: 'Tun', age: 12 },
-];
-
-const arrSubjects = ['Node', 'Angular', 'Mongo', 'Express'];
-
-app.locals.arrPeo = arrX;
-
+app.use(express.static('public'));
 app.get('/', (req, res) => res.render('home'));
-
-app.get('/learn', (req, res) => {
-    res.render('learn', { username: 'khoapham', arrSubjects });
-});
 
 reload(app);
 
