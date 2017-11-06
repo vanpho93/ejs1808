@@ -1,11 +1,16 @@
 const express = require('express');
 const parser = require('body-parser').urlencoded({ extended: false });
-
 const { getBotSignal } = require('./libs/ProcessInputString');
 
 const app = express();
 const server = app.listen(8080, () => console.log('Server started'));
 const io = require('socket.io')(server);
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type,X-Requested-With');
+    next();
+});
 
 app.use(express.static('public'));
 
