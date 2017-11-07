@@ -1,6 +1,8 @@
 const express = require('express');
 const parser = require('body-parser').urlencoded({ extended: false });
 const { getBotSignal } = require('./libs/ProcessInputString');
+const userRouter = require('./controllers/user');
+require('./db/startDb');
 
 const app = express();
 const server = app.listen(8080, () => console.log('Server started'));
@@ -13,6 +15,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static('public'));
+app.use('/user', userRouter); //Use userRouter for handle user sign in, sign up
 
 app.get('/', (req, res) => res.render('home'));
 

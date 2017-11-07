@@ -8,7 +8,8 @@ const SignalSchema = new Schema({
     isWin: { type: Boolean },
     entryPrice: { type: Number, required: true },
     winRate: { type: Number }, // 60 - 70 - 80,
-    closedAt: { type: Date } 
+    closedAt: { type: Date },
+    closePrice: { type: Number }
 });
 
 const Signal = mongoose.model('Signal', SignalSchema);
